@@ -1,0 +1,16 @@
+.thankyou {
+    display: grid;
+    width: 300px;
+    gap: 15px;
+    h1 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    p {
+        color: var(--clr-secondry-300);
+    }
+    h1, p, &__img__container{
+        margin-inline: auto;
+    }
+}

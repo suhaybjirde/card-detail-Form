@@ -1,0 +1,12 @@
+$colors: (
+    primary: (
+        100: linear-gradient(90deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%)), /* input focus border color*/
+        200: hsl(0, 100%, 66%),  /* input border error color*/
+    ),
+    secondry: (
+        100: hsl(0, 0%, 100%),
+        200: hsl(270, 3%, 87%),
+        300: hsl(279, 6%, 55%),
+        400: hsl(278, 68%, 11%),
+    )
+)

@@ -1,0 +1,9 @@
+@use 'colors' as *;
+
+@mixin genarate-colors {
+    @each $color, $shade in $colors {
+        @each $name, $value in $shade {
+            --clr-#{$color}-#{$name}: #{$value};
+        }
+    }
+}

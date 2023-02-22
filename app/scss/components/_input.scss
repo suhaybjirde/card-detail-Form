@@ -1,0 +1,40 @@
+
+.input-wrapper {
+
+    &[data-error] {
+        position: relative;
+
+        &::after {
+            content: attr(data-error);
+            position: absolute;
+            width: 100%;
+            bottom: -25px;
+            left: 0;
+            color: var(--clr-primary-200);
+            font-size: 0.8rem;
+        }
+        .input {
+            border-color: var(--clr-primary-200);
+        }
+    }
+}
+
+
+
+.input {
+    margin-top: 10px;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid var(--clr-secondry-300);
+    &:focus {
+        //there is no direct way of making gradient border 
+        // read this for more https://codyhouse.co/nuggets/css-gradient-borders
+
+        outline: none;
+        border-image: var(--clr-primary-100) 1;
+        background: linear-gradient(white, white) padding-box,
+        var(--clr-primary-100) border-box;
+        border: 2px solid transparent;
+    }
+}

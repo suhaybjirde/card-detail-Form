@@ -1,0 +1,29 @@
+@use '../base/root' as *;
+.card__front {
+    padding: 20px;
+    top: 10%;
+    right: 0;
+    color: var(--clr-secondry-100);
+    background-image: url(/app/assets/images/bg-card-front.png);
+    transform: translateX(20%);
+
+    &__logo {
+        width: 80px;
+    }
+
+    &__number {
+        position: absolute;
+        bottom: 30%;
+        font-size: 1.9rem;
+    }
+
+    .wrapper {
+        position: absolute;
+        bottom: 5%;
+        display: flex;
+        width: 350px;
+        justify-content: space-between;
+        font-size: 1rem;
+        text-transform: uppercase;
+    }
+}

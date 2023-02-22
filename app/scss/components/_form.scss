@@ -1,0 +1,17 @@
+.form {
+    display: grid;
+    gap: 25px;
+    width: 350px;
+    min-height: 365;
+    &__date {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        .ex__date__input__wrapper {
+            position: relative;
+            display: flex;
+            gap: 20px;
+        }
+        
+    }
+}
