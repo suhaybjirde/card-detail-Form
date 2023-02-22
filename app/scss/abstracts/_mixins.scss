@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use '../base/animation' as*;
 
 @mixin genarate-colors {
     @each $color, $shade in $colors {
@@ -6,4 +7,8 @@
             --clr-#{$color}-#{$name}: #{$value};
         }
     }
+}
+
+@mixin animationShow {
+    animation: show .5s ease forwards;
 }

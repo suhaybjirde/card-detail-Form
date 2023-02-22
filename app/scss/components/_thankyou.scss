@@ -1,7 +1,9 @@
+@use '../abstracts/mixins' as *;
 .thankyou {
     display: grid;
     width: 300px;
     gap: 15px;
+    @include animationShow;
     h1 {
         font-size: 2rem;
         text-transform: uppercase;

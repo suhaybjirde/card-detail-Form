@@ -1,8 +1,10 @@
+@use '../abstracts/mixins' as *;
 .form {
     display: grid;
     gap: 25px;
     width: 350px;
     min-height: 365;
+    @include animationShow;
     &__date {
         display: grid;
         grid-template-columns: 1fr 1fr;
