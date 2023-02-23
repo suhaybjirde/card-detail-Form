@@ -1,10 +1,14 @@
 @use '../abstracts/mixins' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/breakpoint' as *;
 .form {
     display: grid;
     gap: 25px;
     width: 350px;
-    min-height: 365;
+    min-height: 365px;
+    margin-bottom: 20px;
     @include animationShow;
+
     &__date {
         display: grid;
         grid-template-columns: 1fr 1fr;

@@ -1,8 +1,20 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/breakpoint' as *;
+
 .card__back {
     background: url(/app/assets/images/bg-card-back.png) no-repeat center center/cover;
     top: 45%;
     right: 0;
     transform: translateX(40%);
+
+    @include max-width(map-get($breakpoint, medium)) {
+        width: 300px;
+        height: 150px;
+        transform: translate(-40%, 10%);
+        top: 10%;
+        left: 50%;
+    }
+
 
     &__cv {
         position: absolute;

@@ -12,3 +12,9 @@
 @mixin animationShow {
     animation: show .5s ease forwards;
 }
+
+@mixin max-width($side) {
+    @media (max-width: $side) {
+        @content
+    }
+}

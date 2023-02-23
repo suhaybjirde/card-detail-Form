@@ -1,4 +1,8 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/breakpoint' as *;
 @use '../base/root' as *;
+
+
 .card__front {
     padding: 20px;
     top: 10%;
@@ -7,14 +11,32 @@
     background-image: url(/app/assets/images/bg-card-front.png);
     transform: translateX(20%);
 
-    &__logo {
-        width: 80px;
+    @include max-width(map-get($breakpoint, medium)) {
+        width: 300px;
+        height: 150px;
+        transform: translate(-60%, 10%);
+        top: 50%;
+        left: 50%;
+        z-index: 10;
     }
 
+
+    &__logo {
+        width: 80px;
+
+        @include max-width(map-get($breakpoint, medium)) {
+            width: 50px;
+        }
+    }
+    
     &__number {
         position: absolute;
         bottom: 30%;
         font-size: 1.9rem;
+
+        @include max-width(map-get($breakpoint, medium)) {
+            font-size: 1.5rem;
+        }
     }
 
     .wrapper {
@@ -25,5 +47,9 @@
         justify-content: space-between;
         font-size: 1rem;
         text-transform: uppercase;
+
+        @include max-width(map-get($breakpoint, medium)) {
+            width: 240px;
+        }
     }
 }
