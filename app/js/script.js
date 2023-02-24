@@ -21,7 +21,7 @@ function loadThank() {
     </div>
     <h1>Thank You!</h1>
     <p>We've added your card details</p>
-    <button class="btn" id="continue">Continue</button>
+    <a href="./index.html" class="btn"  id="continue">Continue</a>
     </div>`
     const template = document.createElement('template')
     template.innerHTML = thankYouTemp.trim();
@@ -87,6 +87,9 @@ function numberInputvalidation() {
     name.addEventListener('focusout', ()=> {
         if (name.value.length < 6) inviled(name,'Name is too short (at least 6 characters)');
     })
+    name.addEventListener('keydown', ()=> {
+        valid(name)
+    })
 }
 
 changeInnerHtml()
@@ -99,7 +102,7 @@ function changeInnerHtml() {
     let cardDate = document.querySelector('.card__font__date');
     let cardBack = document.querySelector('.card__back__cv');
     let month;
-    inputs.forEach((input, index) => {
+    inputs.forEach((input) => {
         input.addEventListener('keyup', ()=> {
             if (input.id == 'cv') cardBack.innerHTML = input.value
         })
