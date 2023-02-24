@@ -1,3 +1,4 @@
+let inputs = document.querySelectorAll('.input')
 const gridForm = document.querySelector('.grid__form');
 const form = document.querySelector('.form');
 
@@ -24,27 +25,27 @@ function loadThank() {
     </div>`
     const template = document.createElement('template')
     template.innerHTML = thankYouTemp.trim();
-
+    
     let thankYou = template.content.firstElementChild;
     let btn = thankYou.querySelector('#continue');
-
+    
     form.style.display = 'none'
-
+    
     gridForm.appendChild(thankYou)
-
+    
     btn.addEventListener('click', ()=> {
-        thankYou.style.display = 'none'
-        form.style.display = 'grid';
-        clearData()
+        
     })
 }
 
 
 function check() {
-    let inputs = document.querySelectorAll('.input')
     let inputArray = []
     inputs.forEach(input => {
         inputArray.push(input)
+        if (input.classList.contains('error') && (input.id == 'month' || input.id == 'year')) {
+            inviled(input, 'Wrong Format, Number Only')
+        }
     })
     let check = inputArray.every(input => {
         return input.value && !(input.parentElement.getAttribute('data-error'))
@@ -64,51 +65,46 @@ function emptyInputs() {
     })
 }
 
-function clearData() {
-    let input = form.querySelectorAll('.input');
-    input.forEach(input => {
-        input.value = ''
-    })
-
-    document.querySelector('.card__front__number').innerHTML = '0000 0000 0000 0000';
-    document.querySelector('.card__front_name').innerHTML = 'Jane Appleseed';
-    document.querySelector('.card__font__date').innerHTML = '00/00';
-    document.querySelector('.card__back__cv').innerHTML = '123';
-
-}
 
 numberInputvalidation()
 
 function numberInputvalidation() {
     let nunberInputArray = [document.querySelector('#month'), document.querySelector('#year'), document.querySelector('#cv'), document.querySelector('#number')]
-    
+    let name = document.querySelector('#name')
     nunberInputArray.forEach(input => {
-        input.addEventListener('input', function () {
-            if ((input.value/input.value || input.value === '') !== 1) {
+        input.addEventListener('keyup', function () {
+            if ((input.value/input.value) !== 1) {
                 inviled(input, 'Wrong Format, Number Only')
             } else {
                 valid(input)
             }
         });
     })
+    const number  = nunberInputArray[3];
+    number.addEventListener('focusout', ()=> {
+        if (number.value.length < 14) inviled(number,'At least 14 characters');
+    })
+    name.addEventListener('focusout', ()=> {
+        if (name.value.length < 6) inviled(name,'Name is too short (at least 6 characters)');
+    })
 }
 
 changeInnerHtml()
 
 function changeInnerHtml() {
-    inputs = document.querySelectorAll('.input');
 
+    inputs = document.querySelectorAll('.input'); 
     let cardNumber = document.querySelector('.card__front__number');
     let cardName = document.querySelector('.card__front_name');
     let cardDate = document.querySelector('.card__font__date');
     let cardBack = document.querySelector('.card__back__cv');
     let month;
-    inputs.forEach(input => {
+    inputs.forEach((input, index) => {
         input.addEventListener('keyup', ()=> {
             if (input.id == 'cv') cardBack.innerHTML = input.value
         })
         input.addEventListener('keyup', ()=> {
-            if (input.id == 'name') cardName.innerHTML = input.value
+            if (input.id == 'name') cardName.innerHTML = input.value;
         })
         input.addEventListener('keyup', ()=> {
             if (input.id == 'number')  cardNumber.innerHTML = input.value;
@@ -125,11 +121,12 @@ function changeInnerHtml() {
     })
 }
 
-function inviled(element, errorName) {
+function inviled(element, error) {
     let wrapper = element.parentElement;
     element.classList.add('error')
-    wrapper.setAttribute('data-error', errorName)
+    wrapper.setAttribute('data-error', error)
 }
+
 function valid(element) {
     let wrapper = element.parentElement;
     element.classList.remove('error')
