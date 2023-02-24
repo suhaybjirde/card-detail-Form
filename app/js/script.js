@@ -32,10 +32,6 @@ function loadThank() {
     form.style.display = 'none'
     
     gridForm.appendChild(thankYou)
-    
-    btn.addEventListener('click', ()=> {
-        
-    })
 }
 
 
